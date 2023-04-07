@@ -12,7 +12,7 @@ from model_cbam import efficientnet_b0 as create_model
 from urllib import request
 
 
-def predict(img):
+def predict(img,model_path='model/model-70_0.978_fix.pth'):
     img = cv2.resize(img, (224, 224))
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -50,7 +50,7 @@ def predict(img):
     # create model
     model = create_model(num_classes=12).to(device)
     # load model weights
-    model_weight_path = "model/model-70_0.978_fix.pth"
+    model_weight_path = model_path
     model.load_state_dict(torch.load(model_weight_path, map_location=device))
     model.eval()
     with torch.no_grad():
