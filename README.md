@@ -1,5 +1,5 @@
 # Ding_Bao_DMS
-# 这是一个简单的不太成熟的DMS系统他叫盯宝
+# 这是一个DMS系统他叫盯宝
 ## 先介绍一下他的来源：
 首先主要模型来源于Effcientnet（https://arxiv.org/abs/1905.11946） 
 其次大部分的代码实现来源于（https://github.com/WZMIAOMIAO/deep-learning-for-image-processing）
