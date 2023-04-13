@@ -62,6 +62,7 @@ def predict(img,model_path='model/model-70_0.978_fix.pth'):
     print_res = "class: {}   prob: {:.3}".format(class_indict[str(predict_cla)],
                                                  predict[predict_cla].numpy())
     out1= class_indict[str(predict_cla)]
+
     out2= predict[predict_cla].numpy()
     # for i in range(len(predict)):
     #     print("class: {:10}   prob: {:.3}".format(class_indict[str(i)],
@@ -70,7 +71,7 @@ def predict(img,model_path='model/model-70_0.978_fix.pth'):
     cv2.putText(frame, print_res, (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
     # cv2.imshow("img", frame)
     # cv2.waitKey(1)
-    return out1,out2
+    return out1,out2,str(predict_cla)
 if __name__ == '__main__':
     webcam = cv2.VideoCapture('DJI_0068.MP4')
     while True:
