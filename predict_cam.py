@@ -13,7 +13,6 @@ from urllib import request
 
 
 def predict(img,model_path='model/model-70_0.978_fix.pth'):
-    img = cv2.resize(img, (224, 224))
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     img_size = {"B0": 224,
