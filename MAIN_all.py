@@ -25,7 +25,7 @@ if __name__ == '__main__':
     for file in files:
         row = [0,0,0,0,0,0,0,0,0,0,0,0,file]
         frame= cv2.imread(file)
-        frame = cv2.resize(frame, (1280, 720))
+        # frame = cv2.resize(frame, (1280, 720))
         predict1,predict2, outnum =predict(frame)
         if predict1==('safe_driving'):
             gazeout = gaze_tracker(frame)
