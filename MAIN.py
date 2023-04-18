@@ -10,10 +10,10 @@ if __name__ == '__main__':
             break
         frame = cv2.resize(frame, (1280, 720))
         predict1,predict2=predict(frame)
-        if predict1==('safe_driving'):
+        if predict1 == ('safe_driving'):
             gazeout = gaze_tracker(frame)
-            if (gazeout == 'looking_left') or (gazeout=="Looking right") \
-                    or (gazeout=="Looking up") or (gazeout=="Looking down"):
+            if (gazeout == 'Looking left') or (gazeout == "Looking right") \
+                    or (gazeout == "Looking down"):
                 cv2.putText(frame, 'look downside', (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 0, 255), 1)
             else:
                 cv2.putText(frame, str(predict1) + str(predict2), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (255, 0, 0),
