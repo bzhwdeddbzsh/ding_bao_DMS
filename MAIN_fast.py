@@ -129,6 +129,10 @@ def gaze_tracker(img):
 if __name__ == '__main__':
     webcam = cv2.VideoCapture('show.mp4')
     model= setup_model()
+    #cv2保存视频
+    fourcc = cv2.VideoWriter_fourcc(*'avc1')
+    out = cv2.VideoWriter('out.mp4', fourcc, 30, (1280, 720))
+
     while True:
         status, frame = webcam.read()
         if not status:
@@ -149,6 +153,7 @@ if __name__ == '__main__':
         #     cv2.putText(frame, str(predict1) + str(predict2), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (255, 0, 0), 1)
         #     out = predict1
         random_num = random.uniform(0.05,0.15)
-        cv2.putText(frame, str(predict1) + str(predict2-random_num), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 1.5, (0, 0, 255), 1)
+        cv2.putText(frame, str(predict1) + str(predict2-random_num), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 1.5, (0, 255, 255), 1)
         cv2.imshow("img", frame)
+        out.write(frame)
         cv2.waitKey(1)
